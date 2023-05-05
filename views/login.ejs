@@ -1,0 +1,10 @@
+<%- include('./partials/header') %>
+<h1>Login</h1>
+<div>
+    <form action="/login/1" method="GET">
+        <input type="email" name="email" id="email" class="form-control my-2 mx-3" placeholder="Enter email: ">
+        <input type="password" name="password" class="form-control my-2 mx-3" id="password" placeholder="Enter password: ">
+        <button value="login" class="btn btn-lg btn-primary mx-3 my-2">Login</button>
+    </form>
+</div>
+<%- include('./partials/footer') %>

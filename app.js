@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 //connect to mongodb
-mongoose.connect('mongodb+srv://Rishin:Rishin%402002@cluster0.cfa3mts.mongodb.net/node_system', {
+mongoose.connect('mongodb+srv://StudentTracker:EBJempYE3pbx4xSQ@cluster0.i8kgzaf.mongodb.net/node_system', {
     useNewurlParser: true,
     useunifiedTopology: true,
 });
@@ -16,8 +16,8 @@ app.set('view engine', 'ejs');
 
 // routes
 app.use(require('./routes/index'));
-app.use(require('./routes/todo'))
-app.use(require('./routes/login'))
+app.use(require('./routes/todo'));
+app.use(require('./routes/login'));
 // listen to server
 app.listen(3000, ()=>{
     console.log('listening on http://localhost:3000');
