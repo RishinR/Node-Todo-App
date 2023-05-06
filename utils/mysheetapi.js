@@ -14,7 +14,7 @@ mongoose.connect(db,{
 // read value from csv into array
 let l = [];
 fs.createReadStream('../public/sample.csv')
-  .pipe(parse({ delimiter: ",", from_line: 2 }))
+  .pipe(parse({ delimiter: ",", from_line: 1 }))
   .on("data", function (row) {
     // console.log(row);
     l.push(row);
