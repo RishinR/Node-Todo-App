@@ -5,11 +5,11 @@ const Login = require("../models/Login");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const db = require("./mongo").mongoURI;
-mongoose.connect(db, {
-  useNewurlParser: true,
-  useunifiedTopology: true,
-  family: 4,
-});
+// mongoose.connect(db, {
+//   useNewurlParser: true,
+//   useunifiedTopology: true,
+//   family: 4,
+// });
 
 async function csvData() {
   const csvFilePath = __dirname + "/../public/sample.csv"; // use __dirname to get the absolute path
@@ -29,6 +29,7 @@ async function csvData() {
       for (i = 0; i < l.length; ++i) {
         const email = l[i][0];
         const pass = l[i][1];
+        // encrypt the password before pushing it into db
         const password = bcrypt.hashSync(pass, saltRounds);
         const us = await Login.findOne({ email: email }, { _id: 1 });
         if (us) {
