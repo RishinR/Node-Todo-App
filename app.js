@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const sheet = require("./utils/mysheetapi");
 const app = express();
+
 //connect to mongodb
 const db = require("./utils/mongo").mongoURI;
 mongoose.connect(db,{
@@ -14,23 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 //app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-// csv to db
-// Replace with your MongoDB database URL
-// const dbName = "node_system"; // Replace with your database name
-// const collectionName = "logins"; // Replace with your collection name
-// const csvFilePath = require('./public/sample.csv');
-
-
+// function to convert the csv into database
 const { csvData } = require("./utils/mysheetapi");
 csvData().catch((err) => console.error(err));
-
 
 
 // routes
 app.use(require("./routes/index"));
 app.use(require("./routes/todo"));
 app.use(require("./routes/login"));
-//
+
 
 // listen to server
 app.listen(3000, () => {
