@@ -10,7 +10,8 @@ router.get('/login', async (req, res)=>{
 router.get('/login/1', async (req, res)=>{
     const {email, password} = req.query;
     console.log(email, password);
-    const user = await Login.findOne({email: email, password: password})
+    const user = await Login.find({"email": email, "password": password})
+    console.log(user)
     if (user){
         console.log('Logged in successfully');
         res.render('dashboard');
