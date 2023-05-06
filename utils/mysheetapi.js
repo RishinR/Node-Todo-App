@@ -1,7 +1,15 @@
 const fs = require("fs");
 const { parse } = require("csv-parse");
+const mongoose = require("mongoose");
 const Login = require('../models/Login');
 // const MongoClient = require("mongodb").MongoClient;
+
+const db = require('./mongo').mongoURI;
+mongoose.connect(db,{
+    useNewurlParser: true,
+    useunifiedTopology: true,
+    family:4
+});
 
 // read value from csv into array
 let l = [];

@@ -5,10 +5,13 @@ const app = express();
 
 //connect to mongodb
 const db = require("./utils/mongo").mongoURI;
-mongoose.connect(db, {
-  useNewurlParser: true,
-  useunifiedTopology: true,
-});
+mongoose.connect(db,{
+    useNewurlParser: true,
+    useunifiedTopology: true,
+    family:4
+    });
+
+
 
 //middlewares
 app.use(express.urlencoded({ extended: true }));
