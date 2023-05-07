@@ -39,7 +39,7 @@ async function csvData() {
           newLogin
             .save()
             .then(() => {
-              console.log("successfully added todo");
+              console.log("successfully added user");
             })
             .catch((err) => {
               console.log(err);
